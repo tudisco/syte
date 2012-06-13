@@ -1,7 +1,15 @@
 <?
 function _blog() {
 
-	$url = TUMBLR_API_URL."/posts?api_key=".TUMBLR_API_KEY;
+	$tag = $_GET['tag'];
+		
+
+	if($tag){
+		$url = TUMBLR_API_URL."/posts?api_key=".TUMBLR_API_KEY."&tag=".$tag;
+	}else{
+		$url = TUMBLR_API_URL."/posts?api_key=".TUMBLR_API_KEY;
+	}
+		
 	$data = file_get_contents_curl($url);
 
 	if($data){

@@ -6,9 +6,9 @@
 <script type="text/javascript">
 $(function() {
   <? if($post_id): ?>
-  fetchBlogPosts("<?=post_id?>");
-  <? elseif ($tag_slug): ?>
-  fetchBlogPosts(null, "<?=tag_slug?>");
+  fetchBlogPosts("<?=$post_id?>");
+  <? elseif ($tag): ?>
+  fetchBlogPosts(null, "<?=$tag?>");
   <? else: ?>
   fetchBlogPosts();
   <? endif; ?>

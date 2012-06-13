@@ -1,11 +1,13 @@
 
 function fetchBlogPosts(post, tag) {
-  var blog_fetch_url = '/api/blog';
+  var blog_fetch_url = '/api/blog/';
 
-  if (post)
-      blog_fetch_url = '?post=' + post;
-  else if (tag)
-      blog_fetch_url = '?tag=' + tag;
+  if(tag) console.log("Tag: "+tag);
+
+  if (post) blog_fetch_url += '?post=' + post;
+  else if (tag) blog_fetch_url += '?tag=' + tag;
+
+  console.log(blog_fetch_url);
 
   $.getJSON(blog_fetch_url, function(blog_posts) {
       require(["text!templates/blog-post-text.html",
